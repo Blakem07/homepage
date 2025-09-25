@@ -1,0 +1,47 @@
+@font-face {
+  font-family: PlayfairDisplay;
+  src: url("font/PlayfairDisplay.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: RobotoVariable;
+  src: url("font/RobotoVariable.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: black
+  --secondary-color: white;
+
+  --primary-font-color: black
+  --header-font: PlayfairDisplay;
+  --text-font: RobotoVariable;
+
+  --font-size-base: 16px;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px (base) */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+  --font-size-6xl: 4rem; /* 64px */
+}
+
+/* Base styles */
+
+/* Layout styles */
+
+/* Component styles */
+
+/* State styles */
+
+/* Utility classes */
+
+/* Media queries */
