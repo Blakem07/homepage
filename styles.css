@@ -13,10 +13,10 @@
 }
 
 :root {
-  --primary-color: rgb(0, 136, 247);
+  --primary-color: rgb(73, 73, 73);
   --secondary-color: white;
 
-  --primary-font-color: black;
+  --primary-font-color: #f0f0f0;
   --secondary-font-color: white;
   --header-font: PlayfairDisplay;
   --text-font: RobotoVariable;
@@ -37,6 +37,22 @@
 
 /* Base styles */
 
+html {
+  font-size: var(--font-size-base);
+  font-family: RobotoVariable;
+  color: var(--primary-font-color);
+}
+
+h1,
+h2 {
+  font-family: Roboto-Variable;
+}
+
+h2 {
+  font-size: var(--font-size-5xl);
+  font-weight: 1;
+}
+
 /* Layout styles */
 
 body {
@@ -44,6 +60,9 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+
+  -webkit-font-smoothing: antialiased; /*Improves appearance of white font*/
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header,
@@ -58,6 +77,44 @@ main {
   overflow-y: auto; /* Scroll if content overflows */
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px; /* adds space inside the footer around all items */
+  box-sizing: border-box; /* ensures padding doesn't increase footer size unexpectedly */
+  gap: 20px;
+}
+
+#footer-content {
+  max-width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#icon-container {
+  display: flex;
+  padding-top: 50px;
+  justify-content: center;
+  gap: 20px;
+}
+
+#icon-container img {
+  width: 40px;
+  height: 40px;
+  fill: white;
+}
+
+#linkedin-icon {
+  filter: brightness(0) invert(1);
+}
+
+#monochrome-footer-img {
+  height: auto;
+  max-width: 35%;
+}
+
 /* Component styles */
 
 /* State styles */
@@ -65,3 +122,45 @@ main {
 /* Utility classes */
 
 /* Media queries */
+
+/*Mobile Phone*/
+@media (max-width: 425px) {
+  html {
+    font-size: var(--font-size-lg);
+  }
+
+  footer {
+    flex-direction: column; /* stack items vertically */
+    align-items: center; /* center items horizontally */
+    text-align: center;
+  }
+
+  #footer-content,
+  #monochrome-footer-img {
+    max-width: 100%; /* take full width */
+  }
+
+  #icon-container {
+    padding: 0;
+  }
+}
+
+/*Tablet*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  footer {
+    gap: 10rem;
+  }
+
+  #footer-content h2 {
+    white-space: nowrap;
+  }
+}
+
+/*Large Displays*/
+
+@media (min-width: 2560px) {
+  html {
+    font-size: var(--font-size-2xl);
+  }
+}
