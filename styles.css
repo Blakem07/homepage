@@ -15,7 +15,7 @@
 :root {
   --primary-color: rgb(73, 73, 73);
   --secondary-color: white;
-  --tertiary-color: rgb(201, 201, 201);
+  --tertiary-color: rgb(240, 240, 240);
 
   --primary-font-color: #f0f0f0;
   --secondary-font-color: rgb(0, 0, 0);
@@ -85,6 +85,7 @@ header {
   max-width: 20%;
 
   filter: grayscale(100%) brightness(1.5);
+  box-shadow: 0rem 0rem 3rem var(--shadow);
 
   position: relative;
   z-index: 10;
@@ -94,7 +95,6 @@ header {
 #about-me-container {
   max-width: 40%;
   padding: 3.5rem;
-  border: 1px black solid;
   background-color: var(--tertiary-color);
   color: var(--secondary-font-color);
 }
@@ -192,6 +192,27 @@ body::before {
   }
 }
 
+@media (max-width: 1024px) {
+  #monochrome-header-img {
+    max-width: 30%;
+  }
+
+  #about-me-container {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  #monochrome-header-img {
+    max-width: 40%;
+    transform: translateX(0px);
+  }
+
+  #about-me-container {
+    max-width: 40%;
+  }
+}
+
 /*Mobile Phones 425px -> 375px -> 320px*/
 
 @media (max-width: 425px) {
@@ -209,14 +230,18 @@ body::before {
 
   #monochrome-header-img {
     max-width: 80%;
-    transform: translateX(0px);
     padding: 10px;
+
+    transform: translateX(0px);
+
+    box-shadow: none;
   }
 
   #about-me-container {
     max-width: 100%;
-    background-color: var(--secondary-color);
     border: 0;
+    padding: 40;
+    background-color: var(--secondary-color);
   }
 
   footer {
@@ -240,6 +265,9 @@ body::before {
 }
 
 @media (max-width: 375px) {
+  header {
+    gap: 5.5rem;
+  }
   #monochrome-header-img {
     max-width: 90%;
   }
