@@ -75,6 +75,7 @@ footer {
 }
 
 header {
+  padding: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,29 +132,36 @@ footer {
   gap: 15px;
 }
 
-#icon-container {
+/* Component styles */
+
+.icon-container {
   display: flex;
   padding-top: 50px;
   justify-content: center;
   gap: 20px;
 }
 
-#icon-container img {
+.icon-container img {
   width: 40px;
   height: 40px;
-  fill: white;
+
+  filter: brightness(0);
 }
 
-#linkedin-icon {
-  filter: brightness(0) invert(1);
+header .icon-container {
+  justify-content: end;
+  filter: brightness(0);
+}
+
+footer .linkedin-icon,
+footer .github-icon {
+  filter: invert(1);
 }
 
 #monochrome-footer-img {
   height: auto;
   max-width: 35%;
 }
-
-/* Component styles */
 
 /* State styles */
 
@@ -177,39 +185,47 @@ body::before {
 /*Large Displays*/
 
 @media (min-width: 2560px) {
+  /*4k Display*/
   html {
     font-size: var(--font-size-2xl);
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  footer {
-    gap: 10rem;
+@media (max-width: 1440px) {
+  /*Laptop Large*/
+  #monochrome-header-img {
+    max-width: 25%;
   }
 
-  #footer-content h2 {
-    white-space: nowrap;
+  #about-me-container {
+    max-width: 60%;
   }
 }
 
 @media (max-width: 1024px) {
+  /*Laptop*/
+  footer {
+    gap: 10rem;
+  }
+
   #monochrome-header-img {
-    max-width: 30%;
+    max-width: 40%;
   }
 
   #about-me-container {
-    max-width: 80%;
+    max-width: 60%;
   }
 }
 
 @media (max-width: 768px) {
+  /*Tablet*/
   #monochrome-header-img {
     max-width: 40%;
     transform: translateX(0px);
   }
 
   #about-me-container {
-    max-width: 40%;
+    max-width: 60%;
   }
 }
 
@@ -221,11 +237,19 @@ body::before {
   }
 
   header {
+    padding: 0;
+
     flex-direction: column; /* stack items vertically */
     align-items: center; /* center items horizontally */
     text-align: center;
 
     gap: 5rem;
+  }
+
+  header .icon-container {
+    padding-top: 60px;
+
+    justify-content: center;
   }
 
   #monochrome-header-img {
@@ -255,7 +279,7 @@ body::before {
     max-width: 100%; /* take full width */
   }
 
-  #icon-container {
+  .icon-container {
     padding: 0;
   }
 
