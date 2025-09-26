@@ -38,7 +38,11 @@
   --font-size-6xl: 4rem; /* 64px */
 }
 
-/* Base styles */
+/* ========================================================================== 
+
+   Base styles 
+
+   ========================================================================== */
 
 html {
   font-size: var(--font-size-base);
@@ -47,8 +51,11 @@ html {
 }
 
 h1,
-h2 {
-  font-family: Roboto-Variable;
+h2,
+h3,
+h4,
+h5 {
+  font-family: PlayfairDisplay;
   font-weight: 1;
 }
 
@@ -56,11 +63,26 @@ h2 {
   font-size: var(--font-size-5xl);
 }
 
+h3 {
+  font-family: RobotoVariable;
+  font-size: var(--font-size-2xl);
+  color: var(--secondary-font-color);
+}
+
+.project-info p {
+  font-size: var(--font-size-sm);
+  color: var(--secondary-font-color);
+}
+
 img {
   user-select: none;
 }
 
-/* Layout styles */
+/* ========================================================================== 
+
+   Layout styles 
+
+   ========================================================================== */
 
 body {
   min-height: 100vh;
@@ -71,6 +93,8 @@ body {
   -webkit-font-smoothing: antialiased; /*Improves appearance of white font*/
   -moz-osx-font-smoothing: grayscale;
 }
+
+/*HEADER ----------------------------------------------------------------------------------------*/
 
 header,
 footer {
@@ -124,11 +148,64 @@ header {
   color: var(--secondary-font-color);
 }
 
+/*MAIN ----------------------------------------------------------------------------------------*/
+
 main {
   flex: 1 0 auto; /* Grow to fill remaining space */
   overflow-y: auto; /* Scroll if content overflows */
   padding: 50px;
 }
+
+main h2 {
+  color: var(--secondary-font-color);
+}
+
+.project-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 25rem));
+  justify-content: center;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.project-card {
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+
+  filter: grayscale(100%);
+  box-shadow: 0rem 0.1rem 1rem var(--shadow);
+
+  transition: all 200ms ease-in-out;
+}
+
+.project-card img {
+  object-fit: cover;
+  height: 60%;
+  width: auto;
+}
+
+.project-info {
+  height: 40%;
+  width: auto;
+  display: flex;
+  background-color: var(--tertiary-color);
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.project-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-icons {
+  display: flex;
+  gap: 5px;
+}
+
+/*FOOTER ----------------------------------------------------------------------------------------*/
 
 footer {
   background-color: var(--primary-color);
@@ -148,7 +225,11 @@ footer {
   gap: 15px;
 }
 
-/* Component styles */
+/* ========================================================================== 
+
+   Component styles 
+
+   ========================================================================== */
 
 .icon-container {
   display: flex;
@@ -169,6 +250,10 @@ header .icon-container {
   filter: brightness(0);
 }
 
+.project-icons img {
+  height: 1.7rem;
+}
+
 footer .linkedin-icon,
 footer .github-icon {
   filter: invert(1);
@@ -179,7 +264,11 @@ footer .github-icon {
   max-width: 35%;
 }
 
-/* State styles */
+/* ========================================================================== 
+
+   State styles 
+
+   ========================================================================== */
 
 body::before {
   /*Diagonal background layer*/
@@ -194,9 +283,22 @@ body::before {
   box-shadow: 0rem 0.1rem 1rem var(--shadow);
 }
 
-/* Utility classes */
+.project-card:hover {
+  transform: scale(1.01);
+  filter: grayscale(0%);
+}
 
-/* Media queries */
+/* ========================================================================== 
+
+   Utility classes 
+
+   ========================================================================== */
+
+/* ========================================================================== 
+
+   Media queries 
+
+   ========================================================================== */
 
 /*Large Displays*/
 
