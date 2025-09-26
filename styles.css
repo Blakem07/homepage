@@ -15,11 +15,14 @@
 :root {
   --primary-color: rgb(73, 73, 73);
   --secondary-color: white;
+  --tertiary-color: rgb(201, 201, 201);
 
   --primary-font-color: #f0f0f0;
-  --secondary-font-color: white;
+  --secondary-font-color: rgb(0, 0, 0);
   --header-font: PlayfairDisplay;
   --text-font: RobotoVariable;
+
+  --shadow: #595959;
 
   --font-size-base: 16px;
 
@@ -46,11 +49,11 @@ html {
 h1,
 h2 {
   font-family: Roboto-Variable;
+  font-weight: 1;
 }
 
 h2 {
   font-size: var(--font-size-5xl);
-  font-weight: 1;
 }
 
 /* Layout styles */
@@ -67,22 +70,57 @@ body {
 
 header,
 footer {
-  background-color: var(--primary-color);
   flex: 0 0 auto; /* Do not grow/shrink, keep natural height */
   min-height: 60px; /* Minimum height for small screens */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#monochrome-header-img {
+  height: auto;
+  max-width: 20%;
+
+  filter: grayscale(100%) brightness(1.5);
+
+  position: relative;
+  z-index: 10;
+  transform: translateX(5px);
+}
+
+#about-me-container {
+  max-width: 40%;
+  padding: 3.5rem;
+  border: 1px black solid;
+  background-color: var(--tertiary-color);
+  color: var(--secondary-font-color);
+}
+
+#about-me-container h2 {
+  white-space: nowrap;
+}
+
+#about-me-container p {
+  color: var(--secondary-font-color);
 }
 
 main {
   flex: 1 0 auto; /* Grow to fill remaining space */
   overflow-y: auto; /* Scroll if content overflows */
+  padding: 50px;
 }
 
 footer {
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   padding: 20px; /* adds space inside the footer around all items */
   box-sizing: border-box; /* ensures padding doesn't increase footer size unexpectedly */
   gap: 20px;
+  box-shadow: 0rem 0.1rem 5rem var(--shadow);
 }
 
 #footer-content {
@@ -119,14 +157,66 @@ footer {
 
 /* State styles */
 
+body::before {
+  /*Diagonal background layer*/
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 35rem;
+  background-color: var(--primary-color);
+  transform-origin: 0;
+  transform: skewY(-10deg);
+  box-shadow: 0rem 0.1rem 1rem var(--shadow);
+}
+
 /* Utility classes */
 
 /* Media queries */
 
-/*Mobile Phone*/
+/*Large Displays*/
+
+@media (min-width: 2560px) {
+  html {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  footer {
+    gap: 10rem;
+  }
+
+  #footer-content h2 {
+    white-space: nowrap;
+  }
+}
+
+/*Mobile Phones 425px -> 375px -> 320px*/
+
 @media (max-width: 425px) {
   html {
     font-size: var(--font-size-lg);
+  }
+
+  header {
+    flex-direction: column; /* stack items vertically */
+    align-items: center; /* center items horizontally */
+    text-align: center;
+
+    gap: 5rem;
+  }
+
+  #monochrome-header-img {
+    max-width: 80%;
+    transform: translateX(0px);
+    padding: 10px;
+  }
+
+  #about-me-container {
+    max-width: 100%;
+    background-color: var(--secondary-color);
+    border: 0;
   }
 
   footer {
@@ -143,24 +233,28 @@ footer {
   #icon-container {
     padding: 0;
   }
-}
 
-/*Tablet*/
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  footer {
-    gap: 10rem;
-  }
-
-  #footer-content h2 {
-    white-space: nowrap;
+  body::before {
+    height: 32rem;
   }
 }
 
-/*Large Displays*/
+@media (max-width: 375px) {
+  #monochrome-header-img {
+    max-width: 90%;
+  }
+}
 
-@media (min-width: 2560px) {
-  html {
-    font-size: var(--font-size-2xl);
+@media (max-width: 320px) {
+  header {
+    gap: 7rem;
+  }
+
+  #monochrome-header-img {
+    max-width: 100%;
+  }
+
+  #about-me-container {
+    padding: 0;
   }
 }
