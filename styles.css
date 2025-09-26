@@ -56,6 +56,10 @@ h2 {
   font-size: var(--font-size-5xl);
 }
 
+img {
+  user-select: none;
+}
+
 /* Layout styles */
 
 body {
@@ -81,9 +85,21 @@ header {
   justify-content: center;
 }
 
-#monochrome-header-img {
+.header-image-container {
   height: auto;
   max-width: 20%;
+}
+
+.header-text {
+  justify-self: center;
+  position: absolute;
+  z-index: 11;
+  user-select: none;
+}
+
+#monochrome-header-img {
+  height: auto;
+  width: 100%;
 
   filter: grayscale(100%) brightness(1.5);
   box-shadow: 0rem 0rem 3rem var(--shadow);
@@ -193,7 +209,7 @@ body::before {
 
 @media (max-width: 1440px) {
   /*Laptop Large*/
-  #monochrome-header-img {
+  .header-image-container {
     max-width: 25%;
   }
 
@@ -208,7 +224,7 @@ body::before {
     gap: 10rem;
   }
 
-  #monochrome-header-img {
+  .header-image-container {
     max-width: 40%;
   }
 
@@ -219,8 +235,11 @@ body::before {
 
 @media (max-width: 768px) {
   /*Tablet*/
-  #monochrome-header-img {
+  .header-image-container {
     max-width: 40%;
+  }
+
+  #monochrome-header-img {
     transform: translateX(0px);
   }
 
@@ -237,8 +256,7 @@ body::before {
   }
 
   header {
-    padding: 0;
-
+    padding: 0px;
     flex-direction: column; /* stack items vertically */
     align-items: center; /* center items horizontally */
     text-align: center;
@@ -252,12 +270,12 @@ body::before {
     justify-content: center;
   }
 
-  #monochrome-header-img {
+  .header-image-container {
     max-width: 80%;
     padding: 10px;
+  }
 
-    transform: translateX(0px);
-
+  #monochrome-header-img {
     box-shadow: none;
   }
 
@@ -272,6 +290,8 @@ body::before {
     flex-direction: column; /* stack items vertically */
     align-items: center; /* center items horizontally */
     text-align: center;
+
+    gap: 3rem;
   }
 
   #footer-content,
@@ -290,20 +310,20 @@ body::before {
 
 @media (max-width: 375px) {
   header {
-    gap: 5.5rem;
+    padding: 10px;
+    gap: 9rem;
   }
-  #monochrome-header-img {
-    max-width: 90%;
+
+  .header-image-container {
+    max-width: 80%;
+    padding: 0px;
   }
 }
 
 @media (max-width: 320px) {
-  header {
-    gap: 7rem;
-  }
-
-  #monochrome-header-img {
+  .header-image-container {
     max-width: 100%;
+    padding: 20px;
   }
 
   #about-me-container {
