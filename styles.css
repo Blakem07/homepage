@@ -254,6 +254,10 @@ header .icon-container {
   height: 1.7rem;
 }
 
+#todo-list-img {
+  object-fit: fill;
+}
+
 footer .linkedin-icon,
 footer .github-icon {
   filter: invert(1);
