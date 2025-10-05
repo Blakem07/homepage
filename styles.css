@@ -162,7 +162,7 @@ main h2 {
 
 .project-cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 25rem));
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 25rem));
   justify-content: center;
   padding: 2rem;
   gap: 3rem;
@@ -289,7 +289,7 @@ body::before {
 
 .project-card:hover {
   transform: scale(1.01);
-  filter: grayscale(0%);
+  filter: grayscale(0%) brightness(120%);
 }
 
 /* ========================================================================== 
@@ -336,6 +336,13 @@ body::before {
 
   #about-me-container {
     max-width: 60%;
+  }
+}
+
+@media (pointer: coarse) {
+  /* Removes grayscale to color transition for touch devices */
+  .project-card {
+    filter: grayscale(0%);
   }
 }
 
@@ -392,6 +399,14 @@ body::before {
     background-color: var(--secondary-color);
   }
 
+  .project-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .project-card p {
+    font-size: 0.7rem;
+  }
+
   footer {
     flex-direction: column; /* stack items vertically */
     align-items: center; /* center items horizontally */
@@ -434,5 +449,20 @@ body::before {
 
   #about-me-container {
     padding: 0;
+  }
+  .project-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 25rem));
+  }
+
+  .project-card h3 {
+    font-size: 1rem;
+  }
+
+  .project-card p {
+    font-size: 0.7rem;
+  }
+
+  .project-icons {
+    transform: scale(90%);
   }
 }
