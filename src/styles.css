@@ -151,6 +151,8 @@ header {
 /*MAIN ----------------------------------------------------------------------------------------*/
 
 main {
+  display: flex;
+  flex-direction: column;
   flex: 1 0 auto; /* Grow to fill remaining space */
   overflow-y: auto; /* Scroll if content overflows */
   padding: 50px;
@@ -397,6 +399,10 @@ body::before {
     border: 0;
     padding: 40;
     background-color: var(--secondary-color);
+  }
+
+  main h2 {
+    align-self: center;
   }
 
   .project-card h3 {
