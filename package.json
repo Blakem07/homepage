@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "��#\u0000 \u0000w\u0000e\u0000b\u0000p\u0000a\u0000c\u0000k\u0000-\u0000t\u0000e\u0000m\u0000p\u0000l\u0000a\u0000t\u0000e\u0000\r\u0000 \u0000",
   "main": "index.js",
+  "homepage": "https://Blakem07.github.io/homepage",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b gh-pages"
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
