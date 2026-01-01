@@ -166,45 +166,69 @@ main h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(19rem, 25rem));
   justify-content: center;
-  padding: 2rem;
   gap: 3rem;
+  padding: 2rem;
+  align-items: stretch;
 }
 
 .project-card {
   aspect-ratio: 1 / 1;
-  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
 
   filter: grayscale(100%);
   box-shadow: 0rem 0.1rem 1rem var(--shadow);
-
   transition: all 200ms ease-in-out;
 }
 
 .project-card img {
-  object-fit: cover;
   height: 60%;
-  width: auto;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  flex: 0 0 auto;
 }
 
 .project-info {
   height: 40%;
-  width: auto;
+  width: 100%;
+
   display: flex;
-  background-color: var(--tertiary-color);
-  justify-content: center;
   flex-direction: column;
+  justify-content: space-between;
+
+  background-color: var(--tertiary-color);
   padding: 1rem;
+  overflow: hidden;
+}
+
+.project-info h3,
+.project-info h4,
+.project-info p {
+  margin: 0;
+}
+
+.project-info p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
 }
 
 .project-links {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .project-icons {
   display: flex;
-  gap: 5px;
+  gap: 0.5rem;
 }
 
 /*FOOTER ----------------------------------------------------------------------------------------*/
