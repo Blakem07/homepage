@@ -315,7 +315,7 @@ body::before {
 
 .project-card:hover {
   transform: scale(1.01);
-  filter: grayscale(0%) brightness(120%);
+  filter: grayscale(0%);
 }
 
 /* ========================================================================== 
